@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NEEGED UZ HAHA</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      width: 330px;
+      z-index: 1;
+    }
+
+    h1 {
+      color: #ff4f81;
+      margin-bottom: 10px;
+    }
+
+    .cats {
+      font-size: 40px;
+      margin: 10px 0;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.12s;
+      position: fixed;
+      z-index: 999; /* always on top */
+    }
+
+    #yesBtn {
+      background: #ff4f81;
+      color: white;
+      left: 40%;
+      top: 65%;
+    }
+
+    #noBtn {
+      background: #ddd;
+      left: 55%;
+      top: 65%;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4f81;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>ERTHEN UNTLDA HAR SHUNU YU HIIGD BDI</h1>
+    <div class="cats">🐱</div>
+    <p>Will you be mine this Valentine’s Day?</p>
+    <div class="message" id="message"></div>
+  </div>
+
+  <button id="yesBtn">Yes 👌</button>
+  <button id="noBtn">No 😒</button>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+
+    function moveFarAway(btn) {
+      const maxX = window.innerWidth - btn.offsetWidth - 10;
+      const maxY = window.innerHeight - btn.offsetHeight - 10;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+
+    // YES = win screen
+    yesBtn.addEventListener("click", () => {
+      message.textContent = "SAIN BN ERT UNT";
+    });
+
+    // NO = escape on ANY attempt (desktop + mobile)
+    ["mousedown", "mouseover", "touchstart"].forEach(event => {
+      noBtn.addEventListener(event, (e) => {
+        e.preventDefault();
+        moveFarAway(noBtn);
+      });
+    });
+  </script>
+
+</body>
+</html>
